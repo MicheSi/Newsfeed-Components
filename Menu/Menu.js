@@ -37,10 +37,31 @@ function createMenu(menuItems) {
   // define elements
   const menu = document.createElement('div');
   const list = document.createElement('ul');
-  
+
+  // loop over array to create list item
+  const menuItem = menuItems.forEach((item, index) => {
+    item[index].document.createElement('li')
+  })
+
   // set class names
+  menu.classList.add('menu');
 
   // append
+  menu.appendChild(list);
+  list.appendChild(menuItem);
 
   // text content
+  menuItem.textContent = menuItems[index]
+
+  // select menu button
+  const menuBtn = document.querySelector('.menu-button');
+
+  // add event listener
+  menuBtn.addEventListener('click', event => {
+    menu.classList.toggle('menu-open');
+    list.classList.toggle('toggle-on');
+  })
+
+  return menu;
 }
+
