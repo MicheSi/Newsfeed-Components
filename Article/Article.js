@@ -162,8 +162,9 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
   expand.textContent = '\u25bc';
 
   // event listener
-  article.addEventListener('click', event => {
-    expand.classList.toggle('article-open')
+  expand.addEventListener('click', event => {
+    console.log('clicked button', event.target)
+    article.classList.toggle('article-open')
     pOne.classList.toggle('toggle-on');
     pTwo.classList.toggle('toggle-on');
     pThree.classList.toggle('toggle-on');
