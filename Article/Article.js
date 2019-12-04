@@ -85,6 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'My Article',
+    date: 'December 4th, 2019',
+    firstParagraph: `blah blah blah `,
+
+    secondParagraph: `wah wah wah `,
+
+    thirdParagraph: `da da da`
+  },
+  {
+    title: 'Another Article',
+    date: 'September 17, 2000',
+    firstParagraph: `doobie doobie doo `,
+
+    secondParagraph: `bork bork `,
+
+    thirdParagraph: `say what?`
   }
 ];
 
@@ -120,12 +138,12 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
   const pOne = document.createElement('p');
   const pTwo = document.createElement('p');
   const pThree = document.createElement('p');
-  const expandButton = document.createElement('span');
+  const expand = document.createElement('span');
 
   // set class names
   article.classList.add('article');
   articleDate.classList.add('date');
-  expandButton.classList.add('expandButton');
+  expand.classList.add('expandButton', 'article-open');
 
   // append elements
   article.appendChild(articleTitle);
@@ -133,7 +151,7 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
   article.appendChild(pOne);
   article.appendChild(pTwo);
   article.appendChild(pThree);
-  article.appendChild(expandButton);
+  article.appendChild(expand);
 
   // text content
   articleTitle.textContent = title;
@@ -141,10 +159,14 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
   pOne.textContent = firstParagraph;
   pTwo.textContent = secondParagraph;
   pThree.textContent = thirdParagraph;
+  expand.textContent = '\u25bc';
 
   // event listener
-  expandButton.addEventListener('click', event => {
-    article.classList.toggle('article-open');
+  article.addEventListener('click', event => {
+    expand.classList.toggle('article-open')
+    pOne.classList.toggle('toggle-on');
+    pTwo.classList.toggle('toggle-on');
+    pThree.classList.toggle('toggle-on');
   })
 
   return article;
