@@ -150,4 +150,10 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
   return article;
 }
 
+// append to parent element
+const articles = document.querySelector('.articles');
+
 // loop over data
+data.forEach(artData => {
+  articles.appendChild(createArticle(artData.title, artData.date, artData.firstParagraph, artData.secondParagraph, artData.thirdParagraph))
+})
