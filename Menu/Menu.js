@@ -43,6 +43,7 @@ function createMenu(array) {
     let menuItem = document.createElement('li');
     menuItem.textContent = item;
     list.appendChild(menuItem);
+    console.log(menuItem)
   })
 
   // set class names
@@ -56,7 +57,8 @@ function createMenu(array) {
 
   // add event listener
   menuBtn.addEventListener('click', event => {
-    menu.classList.toggle('menu-open');
+    console.log('clicked button', event.target);
+    menu.classList.toggle('menu--open');
     list.classList.toggle('toggle-on');
   })
 
