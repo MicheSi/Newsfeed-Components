@@ -134,9 +134,18 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
   article.appendChild(pTwo);
   article.appendChild(pThree);
   article.appendChild(expandButton);
+
   // text content
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  pOne.textContent = firstParagraph;
+  pTwo.textContent = secondParagraph;
+  pThree.textContent = thirdParagraph;
 
   // event listener
+  expandButton.addEventListener('click', event => {
+    article.classList.toggle('article-open');
+  })
 
   return article;
 }
