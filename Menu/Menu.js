@@ -57,7 +57,6 @@ function createMenu(array) {
 
   // add event listener
   menuBtn.addEventListener('click', event => {
-    console.log('clicked button', event.target);
     menu.classList.toggle('menu--open');
     list.classList.toggle('toggle-on');
   })

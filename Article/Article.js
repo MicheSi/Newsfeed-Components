@@ -163,8 +163,8 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
 
   // event listener
   expand.addEventListener('click', event => {
-    console.log('clicked button', event.target)
-    article.classList.toggle('article-open')
+    article.classList.toggle('article-open');
+    // article.classList.toggle('close');
     pOne.classList.toggle('toggle-on');
     pTwo.classList.toggle('toggle-on');
     pThree.classList.toggle('toggle-on');
