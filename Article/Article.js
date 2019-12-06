@@ -143,7 +143,7 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
   // set class names
   article.classList.add('article');
   articleDate.classList.add('date');
-  expand.classList.add('expandButton', 'article-open');
+  expand.classList.add('expandButton');
 
   // append elements
   article.appendChild(articleTitle);
@@ -159,15 +159,15 @@ function createArticle (title, date, firstParagraph, secondParagraph, thirdParag
   pOne.textContent = firstParagraph;
   pTwo.textContent = secondParagraph;
   pThree.textContent = thirdParagraph;
-  expand.textContent = '\u25bc';
+  expand.textContent = '\u25BC';
 
   // event listener
   expand.addEventListener('click', event => {
     article.classList.toggle('article-open');
     // article.classList.toggle('close');
-    pOne.classList.toggle('toggle-on');
-    pTwo.classList.toggle('toggle-on');
-    pThree.classList.toggle('toggle-on');
+    // pOne.classList.toggle('toggle-on');
+    // pTwo.classList.toggle('toggle-on');
+    // pThree.classList.toggle('toggle-on');
   })
 
   return article;
