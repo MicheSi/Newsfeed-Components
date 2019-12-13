@@ -85,6 +85,24 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'My Article',
+    date: 'December 4th, 2019',
+    firstParagraph: `blah blah blah `,
+
+    secondParagraph: `wah wah wah `,
+
+    thirdParagraph: `da da da`
+  },
+  {
+    title: 'Another Article',
+    date: 'September 17, 2000',
+    firstParagraph: `doobie doobie doo `,
+
+    secondParagraph: `bork bork `,
+
+    thirdParagraph: `say what?`
   }
 ];
 
@@ -112,3 +130,53 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function createArticle (title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  // define elements
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const pOne = document.createElement('p');
+  const pTwo = document.createElement('p');
+  const pThree = document.createElement('p');
+  const expand = document.createElement('span');
+
+  // set class names
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  expand.classList.add('expandButton');
+
+  // append elements
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(pOne);
+  article.appendChild(pTwo);
+  article.appendChild(pThree);
+  article.appendChild(expand);
+
+  // text content
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  pOne.textContent = firstParagraph;
+  pTwo.textContent = secondParagraph;
+  pThree.textContent = thirdParagraph;
+  expand.textContent = '\u25BC';
+
+  // event listener
+  expand.addEventListener('click', event => {
+    article.classList.toggle('article-open');
+    // article.classList.toggle('close');
+    // pOne.classList.toggle('toggle-on');
+    // pTwo.classList.toggle('toggle-on');
+    // pThree.classList.toggle('toggle-on');
+  })
+
+  return article;
+}
+
+// append to parent element
+const articles = document.querySelector('.articles');
+
+// loop over data
+data.forEach(artData => {
+  articles.appendChild(createArticle(artData.title, artData.date, artData.firstParagraph, artData.secondParagraph, artData.thirdParagraph))
+})
